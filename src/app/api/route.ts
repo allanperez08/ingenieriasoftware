@@ -70,6 +70,8 @@ export async function POST(request: NextRequest) {
         }
 
         const sql = postgres('postgresql://postgres.cnlxffxyxsgxtdumfbtp:Allan200408@aws-1-us-east-2.pooler.supabase.com:6543/postgres');
+        await sql`INSERT INTO Posts (titulo, descripcion, autor) VALUES (${body.titulo}, ${body.descripcion}, ${body.autor})`;
+        console.log('Datos insertados en la base de datos correctamente');
 
 
     } else {
